@@ -16,6 +16,7 @@
 
 const char *status_line[2] = {"200 OK", "200 Internal server error"};
 
+
 int main(int argc, char *argv[]) {
     int serv_sock, clnt_sock;
     struct sockaddr_in serv_addr, clnt_addr;
@@ -30,7 +31,7 @@ int main(int argc, char *argv[]) {
     serv_sock = socket(PF_INET, SOCK_STREAM, 0);
     const char *file_name = argv[3];
     bzero(&serv_addr, sizeof(serv_addr));
-    serv_addr.sin_family = PF_INET;
+    serv_addr.sin_family = AF_INET;
     serv_addr.sin_addr.s_addr = inet_addr(argv[1]);
     serv_addr.sin_port = htons(atoi(argv[2]));
 
